@@ -1,0 +1,19 @@
+#server configuration
+server:
+  host: "localhost"
+  port: 8080
+
+#database configuration
+database:
+  drivername: "postgres"
+  host: "localhost"
+  port: 5432
+  username: "root"
+  password: "qwerty"
+  dbname: "central-db"
+  sslmode: disable
+
+#jwt configuration
+jwt:
+  accesssecret: "YXNkKEFTREpBZG1tTCFATUFTRERha2Rua2FzZDE="
+  refreshsecret: "YXNkKEFTREpBZG1tTCFATUFTRERha2Rua2FzZDI="

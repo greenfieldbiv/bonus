@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_account_market_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="account_market"/>
+            </not>
+        </preConditions>
+        <createTable tableName="account_market">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="accountid" type="NUMBER">
+                <constraints nullable="false" referencedTableName="account" referencedColumnNames="id" foreignKeyName="account_market_accountid_fk"/>
+            </column>
+            <column name="marketid" type="NUMBER">
+                <constraints nullable="false" referencedTableName="market" referencedColumnNames="id" foreignKeyName="account_market_marketid_fk"/>
+            </column>
+        </createTable>
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="account_market" columnName="id"/>
+        <addPrimaryKey tableName="account_market" columnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
+

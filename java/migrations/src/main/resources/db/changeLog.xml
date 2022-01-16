@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="db/account/main.xml"/>
+    <include file="db/user/main.xml"/>
+    <include file="db/team/main.xml"/>
+    <include file="db/user_team/main.xml"/>
+    <include file="db/user_account/main.xml"/>
+    <include file="db/service/main.xml"/>
+    <include file="db/market/main.xml"/>
+    <include file="db/achievement/main.xml"/>
+    <include file="db/account_achievement/main.xml"/>
+    <include file="db/account_market/main.xml"/>
+    <include file="db/jwtstorage/main.xml"/>
+    <include file="db/scope/main.xml"/>
+    <include file="db/state/main.xml"/>
+
+</databaseChangeLog>
+

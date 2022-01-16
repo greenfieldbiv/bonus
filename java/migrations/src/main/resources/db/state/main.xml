@@ -1,0 +1,86 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    
+    <changeSet id="create_state_entity_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="state_entity"/>
+            </not>
+        </preConditions>
+        <createTable tableName="state_entity">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sysname" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="state_entity" columnName="id"/>
+        <addPrimaryKey tableName="state_entity" columnNames="id"/>
+    </changeSet>
+
+    <changeSet id="insert_state_entity_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="state_entity"/>
+        </preConditions>
+        <sql>
+            insert into state_entity (id, name, sysname) values (1, 'Маркет', 'MARKET');
+            insert into state_entity (id, name, sysname) values (2, 'Событие', 'EVENT');
+            insert into state_entity (id, name, sysname) values (3, 'Достижение', 'ACHIEVE');
+        </sql>
+    </changeSet>
+    
+    <changeSet id="create_state_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="state"/>
+            </not>
+        </preConditions>
+        <createTable tableName="state">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sysname" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stateentityid" type="NUMBER">
+                <constraints nullable="true" foreignKeyName="stateentityid_fk" referencedTableName="state_entity" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint
+                columnNames="sysname, stateentityid"
+                constraintName="sysname_stateentityid_unique_constraint"
+                tableName="state"
+        />
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="state" columnName="id"/>
+        <addPrimaryKey tableName="state" columnNames="id"/>
+    </changeSet>
+
+    <changeSet id="insert_state_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="state"/>
+        </preConditions>
+        <sql>
+            insert into state (id, name, sysname, stateentityid) values (1, 'Доступно', 'AVAILABLE', 1);
+            insert into state (id, name, sysname, stateentityid) values (2, 'Приобретено', 'PURCHASED', 1);
+            insert into state (id, name, sysname, stateentityid) values (3, 'Новое', 'NEW', 2);
+            insert into state (id, name, sysname, stateentityid) values (4, 'В процессе', 'IN_PROCESS', 2);
+            insert into state (id, name, sysname, stateentityid) values (5, 'Выполнено', 'DONE', 2);
+            insert into state (id, name, sysname, stateentityid) values (6, 'Не получено', 'NOT_RECEIVED', 3);
+            insert into state (id, name, sysname, stateentityid) values (7, 'Получено', 'RECEIVED', 3);
+        </sql>
+    </changeSet>
+
+
+
+</databaseChangeLog>
+

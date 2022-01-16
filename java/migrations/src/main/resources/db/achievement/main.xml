@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_achievement_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="achievement"/>
+            </not>
+        </preConditions>
+        <createTable tableName="achievement">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="sysname" type="VARCHAR(255)"/>
+            <column name="level" type="NUMBER" defaultValue="1"/>
+            <column name="cost" type="NUMERIC(19, 2)"/>
+        </createTable>
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="achievement" columnName="id"/>
+        <addPrimaryKey tableName="achievement" columnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
+

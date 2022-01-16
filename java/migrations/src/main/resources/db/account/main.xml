@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_account_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="account"/>
+            </not>
+        </preConditions>
+        <createTable tableName="account">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="login" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(1024)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="createat" type="TIMESTAMP"/>
+            <column name="blocked" type="BOOLEAN" defaultValue="FALSE"/>
+        </createTable>
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="account" columnName="id"/>
+        <addPrimaryKey tableName="account" columnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
+

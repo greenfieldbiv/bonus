@@ -1,0 +1,38 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_own_scope_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="own_scope"/>
+            </not>
+        </preConditions>
+        <createTable tableName="own_scope">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sysname" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="own_scope" columnName="id"/>
+        <addPrimaryKey tableName="own_scope" columnNames="id"/>
+    </changeSet>
+
+    <changeSet id="insert_own_scope_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="own_scope"/>
+        </preConditions>
+        <sql>
+            insert into own_scope (id, name, sysname) values (1, 'Личный', 'PERSONAL_SCOPE');
+            insert into own_scope (id, name, sysname) values (2, 'Командный', 'TEAM_SCOPE');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

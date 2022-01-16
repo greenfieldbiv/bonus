@@ -1,0 +1,912 @@
+{
+	"info": {
+		"_postman_id": "150521a8-c83c-4a3f-8efd-6092610f14bc",
+		"name": "bivbonus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost",
+			"item": [
+				{
+					"name": "account",
+					"item": [
+						{
+							"name": "get account info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImE5MWEzNDU4LWQ4OTktNDk3NS1iNmE4LTUyZTljYzQ0NjRiZSIsImFjY291bnRfaWQiOjEwLCJleHAiOiIyMDIxLTEwLTE3VDAwOjI5OjI0LjcwMzkxNTU0KzAzOjAwIn0.13Bv5yMfcFxaFUTHrYtD3gyFCz-oLlwZ4Bp0LnZYHPQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/account/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"account",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get account full info account",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6IjdjZmExM2U5LWNjNTYtNDcxZS1iMzRlLTQxNDQxMzM4OGYyNCIsImFjY291bnRfaWQiOjE2LCJleHAiOjE2MzQ1MDQwMjV9.oyQuFc6K0WDDZ5UXEJ6EtzeG5vc9V2xJ8H0EBo34pqk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/account/full-info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"account",
+										"full-info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all account",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/account/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"account",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "add user in team",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"teamId\": 1,\n    \"userId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/team/add-user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"team",
+										"add-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"{{$randomUserName}}\",\n    \"surname\": \"{{$randomFirstName}}\",\n    \"patronymic\": \"{{$randomFirstName}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all user",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "team",
+					"item": [
+						{
+							"name": "get teaminfo",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/team/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"team",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create team",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Команда_{{$randomAlphaNumeric}}\",\n    \"sysname\": \"{{$randomDepartment}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/team/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"team",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all team",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/team/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"team",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "achievement",
+					"item": [
+						{
+							"name": "get achievement info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/achievement/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"achievement",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create achievement",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Достижение_{{$randomAlphaNumeric}}\",\n    \"sysname\": \"{{$randomPhrase}}\",\n    \"level\": {{$randomInt}},\n    \"cost\": {{$randomPrice}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/achievement/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"achievement",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all achievement",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/achievement/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"achievement",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add achieve to account",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountid\": 1,\n    \"achievementid\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/account/add-achievement",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"account",
+										"add-achievement"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "market",
+					"item": [
+						{
+							"name": "get market info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/market/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"market",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create market",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Товар_{{$randomAlphaNumeric}}\",\n    \"sysname\": \"{{$randomPhrase}}\",\n    \"level\": {{$randomInt}},\n    \"cost\": {{$randomPrice}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/market/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"market",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all market",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/market/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"market",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add market to account",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountid\": 1,\n    \"marketid\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/account/add-market",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"account",
+										"add-market"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "registry",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\",\n    \"password\": \"{{$randomPassword}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/registry",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"registry"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6Ijc5ODE2NDM5LWUxMGEtNDg1OC1iNzBhLTU5NTE3ZTEwYjgwOSIsImFjY291bnRfaWQiOjEwLCJhdXRob3JpemVkIjp0cnVlLCJleHAiOiIyMDIxLTEwLTE1VDIyOjU4OjQwLjU2ODI0NDI4OSswMzowMCJ9.qnnDVVXGGmr-pXNQUa9HGomHNC4szRzd6q3DhKN24mI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{a_tkn}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"5\",\n    \"phone\": \"5\",\n    \"password\": \"5\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6Ijc5ODE2NDM5LWUxMGEtNDg1OC1iNzBhLTU5NTE3ZTEwYjgwOSIsImFjY291bnRfaWQiOjEwLCJhdXRob3JpemVkIjp0cnVlLCJleHAiOiIyMDIxLTEwLTE1VDIyOjU4OjQwLjU2ODI0NDI4OSswMzowMCJ9.qnnDVVXGGmr-pXNQUa9HGomHNC4szRzd6q3DhKN24mI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{a_tkn}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "service",
+					"item": [
+						{
+							"name": "get serviceinfo",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/service/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"service",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create service",
+							"request": {
+								"auth": {
+									"type": "bearer"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Команда_{{$randomAlphaNumeric}}\",\n    \"sysname\": \"{{$randomDepartment}}\",\n    \"cost\": {{$randomPrice}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/service/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"service",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all service",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ra\",\n    \"phone\": \"asddasd\",\n    \"password\": \"asdnkasd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/service/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"service",
+										"all"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

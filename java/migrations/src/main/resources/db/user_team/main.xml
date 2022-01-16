@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create_user_team_table" author="Ivanov Roman">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user_team"/>
+            </not>
+        </preConditions>
+        <createTable tableName="user_team">
+            <column name="id" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userid" type="NUMBER">
+                <constraints nullable="false" referencedTableName="user" referencedColumnNames="id" foreignKeyName="user_team_userid_fk"/>
+            </column>
+            <column name="teamid" type="NUMBER">
+                <constraints nullable="false" referencedTableName="team" referencedColumnNames="id" foreignKeyName="user_account_teamid_fk"/>
+            </column>
+        </createTable>
+        <addAutoIncrement startWith="0" incrementBy="1" tableName="user_team" columnName="id"/>
+        <addPrimaryKey tableName="user_team" columnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
+
