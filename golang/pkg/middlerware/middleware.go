@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	contentTypeJson = "application/json"
+	contentTypeJson = "application/json; charset=utf-8"
 	accessTokenKey  = "a_tkn"
 	refreshTokenKey = "r_tkn"
 )
@@ -70,11 +70,7 @@ func (m authMiddleWare) WareSecurity(next fasthttp.RequestHandler, security *jwt
 				if ok := security.TokenValid(refreshToken); ok {
 					if newToken, err := security.CreateToken(accessTokenMetadata.AccountId); err == nil {
 						// Упакуем
-						aCookie := fasthttp.Cookie{}
-						aCookie.SetKey(accessTokenKey)
-						aCookie.SetValue(newToken.AccessToken)
-						ctx.Response.Header.SetCookie(&aCookie)
-
+						ctx.Response.Header.Add(accessTokenKey, newToken.AccessToken)
 						jwtStorage.PutTokens(accessTokenMetadata.AccountId, newToken.AccessToken, newToken.RefreshToken)
 						ctx.SetUserValue(security.ContextKey().AccountIdKey, accessTokenMetadataExtracted.AccountId)
 						next(ctx)
@@ -119,14 +115,9 @@ func (m authMiddleWare) WareLogin(next fasthttp.RequestHandler, security *jwt.Se
 					return
 				}
 
-				aCookie := fasthttp.Cookie{}
-				aCookie.SetKey(accessTokenKey)
-				aCookie.SetValue(token.AccessToken)
-
 				security.JwtStorage().PutTokens(acc.Id, token.AccessToken, token.RefreshToken)
-
-				ctx.Response.Header.SetCookie(&aCookie)
 			}
+			ctx.Response.Header.Add(accessTokenKey, jwtStorage.GetAccessToken(acc.Id))
 		} else {
 			ctx.SetStatusCode(fasthttp.StatusUnauthorized)
 		}

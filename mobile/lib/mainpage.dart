@@ -2,6 +2,7 @@ import 'package:bivbonus/pages/common/achievement-page.dart';
 import 'package:bivbonus/pages/common/connections.dart';
 import 'package:bivbonus/pages/common/event.dart';
 import 'package:bivbonus/pages/common/notification.dart';
+import 'package:bivbonus/pages/teams/team.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -173,7 +174,14 @@ class MainPage extends StatelessWidget {
                         const Text(
                           'Команды',
                         ),
-                        () => {},
+                        () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TeamsPage(),
+                            ),
+                          )
+                        },
                       ),
                       _getCategoryButton(
                         const Text(

@@ -1,18 +1,20 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SecureStorage {
-  final FlutterSecureStorage _storage = new FlutterSecureStorage();
+  final String ACCESS_TOKEN = 'access_token';
 
-  setDataByKey(String key, final String value) {
-    if (key != null && value != null) {
-      _storage.write(key: key, value: value);
-    }
+  Future<void> writeSecureData(String key, String value) async {
+    SharedPreferences storage = await SharedPreferences.getInstance();
+    storage.setString(key, value ?? "");
   }
 
-  String getDataByKey(String key) {
-    if (key != null) {
-      return _storage.read(key: key) as String;
-    }
-    return "";
+  Future<String> readSecureData(String key) async {
+    SharedPreferences storage = await SharedPreferences.getInstance();
+    return storage.getString(key);
+  }
+
+  Future<bool> isContainKey(String key) async {
+    SharedPreferences storage = await SharedPreferences.getInstance();
+    return storage.containsKey(key);
   }
 }

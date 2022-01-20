@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 class Register extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final httpCaller = HttpCaller();
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +83,13 @@ class Register extends StatelessWidget {
                   ),
                 ),
                 Container(
+                  width: 350,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          HttpCaller.post<dynamic>(new Uri.http('10.0.2.2:8080', 'auth/registry'),
+                          httpCaller.post<dynamic>(new Uri.http('10.0.2.2:8080', 'auth/registry'),
                               params: json.encode({"email": _emailController.text, "password": _passwordController.text}),
                               headers: {"Content-Type": "application/json"}).then(
                             (value) => value != null

@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 class LoginWidget extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final httpCaller = HttpCaller();
 
   @override
   Widget build(BuildContext context) {
@@ -83,11 +84,13 @@ class LoginWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
+                  width: 350,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          HttpCaller.post<dynamic>(new Uri.http('10.0.2.2:8080', 'auth/login'),
+                      ElevatedButton(
+                        onPressed: () {
+                          httpCaller.post<dynamic>(new Uri.http('10.0.2.2:8080', 'auth/login'),
                               params: json.encode({"email": _emailController.text, "password": _passwordController.text}),
                               headers: {"Content-Type": "application/json"}).then(
                             (value) => value != null
@@ -102,19 +105,17 @@ class LoginWidget extends StatelessWidget {
                                   )),
                           );
                         },
-                        child: ElevatedButton(
-                          child: Text(
-                            'Войти',
-                            style: GoogleFonts.cinzel(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
+                        child: Text(
+                          'Войти',
+                          style: GoogleFonts.cinzel(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       SizedBox(
                         height: 25,
                       ),
-                      InkWell(
-                        onTap: () {
+                      ElevatedButton(
+                        onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -122,12 +123,10 @@ class LoginWidget extends StatelessWidget {
                             ),
                           );
                         },
-                        child: ElevatedButton(
-                          child: Text(
-                            'Зарегистрироваться',
-                            style: GoogleFonts.cinzel(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
+                        child: Text(
+                          'Зарегистрироваться',
+                          style: GoogleFonts.cinzel(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],

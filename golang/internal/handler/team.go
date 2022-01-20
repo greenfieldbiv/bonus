@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"bivbonus/internal/common"
 	"bivbonus/internal/domain"
 	"bivbonus/internal/service"
 	"bivbonus/pkg/security/jwt"
@@ -92,7 +93,10 @@ func (h TeamHandler) All(ctx *fasthttp.RequestCtx) {
 		ctx.SetBody([]byte(err.Error()))
 		return
 	}
-	response, err := json.Marshal(&all)
+	commonResponse := common.CommonResponse{
+		Data: all,
+	}
+	response, err := json.Marshal(&commonResponse)
 	if err != nil {
 		ctx.SetStatusCode(fasthttp.StatusInternalServerError)
 		return

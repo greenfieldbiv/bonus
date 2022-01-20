@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"bivbonus/internal/common"
 	"bivbonus/internal/service"
 	"bivbonus/pkg/security/jwt"
 	"encoding/json"
@@ -47,11 +48,15 @@ func (a *AccountHandler) GetAccountInfo(ctx *fasthttp.RequestCtx) {
 		CreatedAt: acInfo.Createdat,
 		Blocked:   acInfo.Blocked,
 	}
-	response, err := json.Marshal(accountInfoResponse)
+	commonResponse := common.CommonResponse{
+		Data: accountInfoResponse,
+	}
+	response, err := json.Marshal(commonResponse)
 	if err != nil {
 		ctx.SetStatusCode(fasthttp.StatusInternalServerError)
 		return
 	}
+
 	ctx.SetBody(response)
 }
 
